@@ -13,6 +13,11 @@
 		F8172CA02924DB7100DAEFF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8172C9E2924DB7100DAEFF4 /* Main.storyboard */; };
 		F8172CA22924DB7100DAEFF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8172CA12924DB7100DAEFF4 /* Assets.xcassets */; };
 		F8172CA52924DB7100DAEFF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8172CA32924DB7100DAEFF4 /* LaunchScreen.storyboard */; };
+		F8172CAD2924DBB200DAEFF4 /* Multitouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8172CAC2924DBB200DAEFF4 /* Multitouch.swift */; };
+		F8172CAF2924DC0100DAEFF4 /* Oscillators.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8172CAE2924DC0100DAEFF4 /* Oscillators.swift */; };
+		F8172CB22924DC6900DAEFF4 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8172CB12924DC6900DAEFF4 /* AudioKit */; };
+		F8172CB52924DC9800DAEFF4 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8172CB42924DC9800DAEFF4 /* SoundpipeAudioKit */; };
+		F8172CB72925056600DAEFF4 /* BackIMAGE.png in Resources */ = {isa = PBXBuildFile; fileRef = F8172CB62925056600DAEFF4 /* BackIMAGE.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,9 @@
 		F8172CA12924DB7100DAEFF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8172CA42924DB7100DAEFF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8172CA62924DB7100DAEFF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8172CAC2924DBB200DAEFF4 /* Multitouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multitouch.swift; sourceTree = "<group>"; };
+		F8172CAE2924DC0100DAEFF4 /* Oscillators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oscillators.swift; sourceTree = "<group>"; };
+		F8172CB62925056600DAEFF4 /* BackIMAGE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackIMAGE.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8172CB52924DC9800DAEFF4 /* SoundpipeAudioKit in Frameworks */,
+				F8172CB22924DC6900DAEFF4 /* AudioKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +69,9 @@
 				F8172C982924DB7100DAEFF4 /* AppDelegate.swift */,
 				F8172C9A2924DB7100DAEFF4 /* SceneDelegate.swift */,
 				F8172C9C2924DB7100DAEFF4 /* ViewController.swift */,
+				F8172CAC2924DBB200DAEFF4 /* Multitouch.swift */,
+				F8172CAE2924DC0100DAEFF4 /* Oscillators.swift */,
+				F8172CB62925056600DAEFF4 /* BackIMAGE.png */,
 				F8172C9E2924DB7100DAEFF4 /* Main.storyboard */,
 				F8172CA12924DB7100DAEFF4 /* Assets.xcassets */,
 				F8172CA32924DB7100DAEFF4 /* LaunchScreen.storyboard */,
@@ -83,6 +96,10 @@
 			dependencies = (
 			);
 			name = UOY_m1d1;
+			packageProductDependencies = (
+				F8172CB12924DC6900DAEFF4 /* AudioKit */,
+				F8172CB42924DC9800DAEFF4 /* SoundpipeAudioKit */,
+			);
 			productName = UOY_m1d1;
 			productReference = F8172C952924DB7100DAEFF4 /* UOY_m1d1.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +128,10 @@
 				Base,
 			);
 			mainGroup = F8172C8C2924DB7100DAEFF4;
+			packageReferences = (
+				F8172CB02924DC6900DAEFF4 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				F8172CB32924DC9700DAEFF4 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */,
+			);
 			productRefGroup = F8172C962924DB7100DAEFF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,6 +146,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8172CB72925056600DAEFF4 /* BackIMAGE.png in Resources */,
 				F8172CA52924DB7100DAEFF4 /* LaunchScreen.storyboard in Resources */,
 				F8172CA22924DB7100DAEFF4 /* Assets.xcassets in Resources */,
 				F8172CA02924DB7100DAEFF4 /* Main.storyboard in Resources */,
@@ -139,7 +161,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8172C9D2924DB7100DAEFF4 /* ViewController.swift in Sources */,
+				F8172CAD2924DBB200DAEFF4 /* Multitouch.swift in Sources */,
 				F8172C992924DB7100DAEFF4 /* AppDelegate.swift in Sources */,
+				F8172CAF2924DC0100DAEFF4 /* Oscillators.swift in Sources */,
 				F8172C9B2924DB7100DAEFF4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +382,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F8172CB02924DC6900DAEFF4 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F8172CB32924DC9700DAEFF4 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/SoundpipeAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F8172CB12924DC6900DAEFF4 /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8172CB02924DC6900DAEFF4 /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+		F8172CB42924DC9800DAEFF4 /* SoundpipeAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F8172CB32924DC9700DAEFF4 /* XCRemoteSwiftPackageReference "SoundpipeAudioKit" */;
+			productName = SoundpipeAudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F8172C8D2924DB7100DAEFF4 /* Project object */;
 }
