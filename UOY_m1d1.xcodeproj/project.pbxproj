@@ -18,6 +18,7 @@
 		F8172CB22924DC6900DAEFF4 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8172CB12924DC6900DAEFF4 /* AudioKit */; };
 		F8172CB52924DC9800DAEFF4 /* SoundpipeAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = F8172CB42924DC9800DAEFF4 /* SoundpipeAudioKit */; };
 		F8172CB72925056600DAEFF4 /* BackIMAGE.png in Resources */ = {isa = PBXBuildFile; fileRef = F8172CB62925056600DAEFF4 /* BackIMAGE.png */; };
+		F8CB1A8E2950C66200F5A81A /* m1d1_design.png in Resources */ = {isa = PBXBuildFile; fileRef = F8CB1A8D2950C66200F5A81A /* m1d1_design.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		F8172CAC2924DBB200DAEFF4 /* Multitouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multitouch.swift; sourceTree = "<group>"; };
 		F8172CAE2924DC0100DAEFF4 /* Oscillators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Oscillators.swift; sourceTree = "<group>"; };
 		F8172CB62925056600DAEFF4 /* BackIMAGE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackIMAGE.png; sourceTree = "<group>"; };
+		F8CB1A8D2950C66200F5A81A /* m1d1_design.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = m1d1_design.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				F8172CAC2924DBB200DAEFF4 /* Multitouch.swift */,
 				F8172CAE2924DC0100DAEFF4 /* Oscillators.swift */,
 				F8172CB62925056600DAEFF4 /* BackIMAGE.png */,
+				F8CB1A8D2950C66200F5A81A /* m1d1_design.png */,
 				F8172C9E2924DB7100DAEFF4 /* Main.storyboard */,
 				F8172CA12924DB7100DAEFF4 /* Assets.xcassets */,
 				F8172CA32924DB7100DAEFF4 /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 				F8172CB72925056600DAEFF4 /* BackIMAGE.png in Resources */,
 				F8172CA52924DB7100DAEFF4 /* LaunchScreen.storyboard in Resources */,
 				F8172CA22924DB7100DAEFF4 /* Assets.xcassets in Resources */,
+				F8CB1A8E2950C66200F5A81A /* m1d1_design.png in Resources */,
 				F8172CA02924DB7100DAEFF4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +323,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -347,6 +352,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

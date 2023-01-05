@@ -7,12 +7,26 @@
 
 import UIKit
 import AudioKit
+import AudioToolbox
+import SoundpipeAudioKit
 
 class ViewController: UIViewController {
+    
     // Utilities
     var engine = AudioEngine()
     var multicounter: Int!
     var mix: Mixer!
+    var m_oct: Int!
+    var master: Float!
+    var graphs: AUGraph!
+    @IBOutlet weak var lbl_oct: UILabel!
+    @IBOutlet weak var sld_Master: UISlider!
+
+    
+    // MIDI
+    let midi = MIDI()
+    @IBOutlet weak var lbl_midion: UILabel!
+    @IBOutlet weak var lbl_midioff: UILabel!
     
     // OSC1
     var osc1: Multitouch!
@@ -25,13 +39,13 @@ class ViewController: UIViewController {
     var wave2c = 1
     var voices2c = 1
     var level2 = 1.0
+    var osc2_oct: Int!
     
     // Filter
+    //var filter: LowPassFilter!
+    var filter: KorgLowPassFilter!
     @IBOutlet weak var sld_F_FREQ: UISlider!{
         didSet{sld_F_FREQ.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))}
-    }
-    @IBOutlet weak var sld_FQ: UISlider!{
-        didSet{sld_FQ.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi/2))}
     }
     
     // ADSR
@@ -50,12 +64,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        midi.openOutput()
+        master = 0.7
+        osc2_oct = 0
+        m_oct = 0
         multicounter = 0
         osc1 = Multitouch()
         osc2 = Multitouch()
         mix = Mixer(osc1.mix, osc2.mix)
-        mix.volume = 0.25
-        engine.output = mix
+        mix.volume = master
+        filter = KorgLowPassFilter(mix)
+        engine.output = filter
         try! engine.start()
     }
     
@@ -104,44 +123,77 @@ class ViewController: UIViewController {
         default: print("Oscillator does not exist")
         }
     }
+    @IBAction func B_o2_up(_ sender: UIButton) {
+        if osc2_oct < 2 {
+            osc2_oct += 1
+        }
+    }
+    @IBAction func B_o2_dn(_ sender: UIButton) {
+        if osc2_oct > -2 {
+            osc2_oct -= 1
+        }
+    }
     @IBAction func bKeyDn(_ sender: UIButton) {
         if multicounter < 5 {
-            osc1.multiPlay(fromMultiCounter: multicounter, toMultiMidi: sender.tag)
-            osc2.multiPlay(fromMultiCounter: multicounter, toMultiMidi: sender.tag)
+            osc1.multiPlay(fromMultiCounter: multicounter, toMultiMidi: sender.tag+(12*m_oct))
+            osc2.multiPlay(fromMultiCounter: multicounter, toMultiMidi: sender.tag+(12*m_oct)+(12*osc2_oct))
             multicounter += 1
         }
         else{
             multicounter -= 1
         }
+        lbl_midion.text = String(sender.tag+(12*m_oct))
+        midi.sendEvent(MIDIEvent(noteOn: UInt8(sender.tag+(12*m_oct)), velocity: 80, channel: 1))
     }
     @IBAction func bKeyUp(_ sender: UIButton) {
         osc1.multiStop(fromMultiCounter: multicounter)
         osc2.multiStop(fromMultiCounter: multicounter)
         multicounter -= 1
+        midi.sendEvent(MIDIEvent(noteOn: UInt8(sender.tag+(12*m_oct)), velocity: 80, channel: 1))
+        lbl_midioff.text = String(sender.tag+(12*m_oct))
     }
     
     // Filter
     @IBAction func sld_F_Freq(_ sender: UISlider) {
-        osc1.multiFilterFreq(toMFreq: Double(sender.value))
-        osc2.multiFilterFreq(toMFreq: Double(sender.value))
+        filter.cutoffFrequency = sender.value
     }
     @IBAction func sld_F_Q(_ sender: UISlider) {
-        osc1.multiFilterQ(toMQ: sender.value)
-        osc2.multiFilterQ(toMQ: sender.value)
+        filter.resonance = round(Float(sender.value))
     }
     
     // ADSR
     @IBAction func sld_Attack(_ sender: UISlider) {
         osc1.setMAttack(toMAttack: sender.value)
+        osc2.setMAttack(toMAttack: sender.value)
     }
     @IBAction func sld_Decay(_ sender: UISlider) {
         osc1.setMDecay(toMDecay: sender.value)
+        osc2.setMDecay(toMDecay: sender.value)
     }
     @IBAction func sld_Sustain(_ sender: UISlider) {
         osc1.setMSustain(toMSustain: sender.value)
+        osc2.setMSustain(toMSustain: sender.value)
     }
     @IBAction func sld_Release(_ sender: UISlider) {
         osc1.setMRelease(toMRelease: sender.value)
+        osc1.setMRelease(toMRelease: sender.value)
+    }
+    
+    @IBAction func B_m_oct(_ sender: UIButton) {
+        if m_oct < 2 {
+            m_oct += 1
+        }
+        lbl_oct.text = String(m_oct)
+    }
+    @IBAction func B_m_oct_dn(_ sender: UIButton) {
+        if m_oct > -2 {
+            m_oct -= 1
+        }
+        lbl_oct.text = String(m_oct)
+    }
+    @IBAction func sld_masterval(_ sender: UISlider) {
+        master = sender.value
+        mix.volume = master
     }
 }
 

@@ -57,18 +57,6 @@ open class Multitouch{
         default: print("Voice does not exist")
         }
     }
-    open func multiFilterFreq(toMFreq: Double){
-        voice1.setFilterFreq(toFreq: toMFreq)
-        voice2.setFilterFreq(toFreq: toMFreq)
-        voice3.setFilterFreq(toFreq: toMFreq)
-        voice4.setFilterFreq(toFreq: toMFreq)
-    }
-    open func multiFilterQ(toMQ: Float){
-        voice1.setFilterQ(toQ: toMQ)
-        voice2.setFilterQ(toQ: toMQ)
-        voice3.setFilterQ(toQ: toMQ)
-        voice4.setFilterQ(toQ: toMQ)
-    }
     open func setMAttack(toMAttack: Float){
         voice1.setAttack(toAttack: toMAttack)
         voice2.setAttack(toAttack: toMAttack)

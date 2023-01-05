@@ -16,7 +16,7 @@ open class Oscillators {
     var v2 : MorphingOscillator!
     var v3 : MorphingOscillator!
     var v4 : MorphingOscillator!
-    var mixer: Mixer!
+    var mix: Mixer!
     
     // Amplitude
     var amp = 1.0
@@ -30,9 +30,6 @@ open class Oscillators {
     var decay = 0.5
     var sustain = 0.5
     var release = 0.5
-    
-    // Filter
-    var mix: LowPassFilter!
     
     init() {
         v1 = MorphingOscillator(waveformArray: [Table(.sine),Table(.triangle),Table(.square),Table(.sawtooth)])
@@ -49,9 +46,7 @@ open class Oscillators {
         v3.start()
         v4.start()
         
-        mixer = Mixer(v1,v2,v3,v4)
-        // Find a way to compress the signal
-        mix = LowPassFilter(mixer)
+        mix = Mixer(v1,v2,v3,v4)
     }
     open func setWave(fromWave: Int){
         switch fromWave{
@@ -141,12 +136,6 @@ open class Oscillators {
         v2.$amplitude.ramp(from:Float(sustain*amp2),to:0,duration:Float(release))
         v3.$amplitude.ramp(from:Float(sustain*amp3),to:0,duration:Float(release))
         v4.$amplitude.ramp(from:Float(sustain*amp4),to:0,duration:Float(release))
-    }
-    open func setFilterFreq(toFreq: Double){
-        mix.cutoffFrequency = AUValue(toFreq)
-    }
-    open func setFilterQ(toQ: Float){
-        mix.resonance = AUValue(toQ)
     }
     open func setAttack(toAttack: Float){
         attack = Double(toAttack)
