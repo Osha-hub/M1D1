@@ -130,7 +130,7 @@ class ViewController: UIViewController {
     }
     @IBAction func B_o2_dn(_ sender: UIButton) {
         if osc2_oct > -2 {
-            osc2_oct -= 1
+            osc2_oct -= 1 
         }
     }
     @IBAction func bKeyDn(_ sender: UIButton) {
